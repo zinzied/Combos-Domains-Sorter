@@ -17,7 +17,7 @@ The Combo Sorter application is a user-friendly, GUI-based tool designed to help
 
 1. **Launch the Application**:
    - Install requirements (e.g., `pip install -r requirements.txt`)
-   - Run the Python script (e.g., `combo_sorter.py`) to launch the application.
+   - Run the Python script (e.g., `Sorter.py`) to launch the application.
 
 3. **Select a File**:
    - Click the "Open File" button to open a file dialog.
