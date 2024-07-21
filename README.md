@@ -1,43 +1,64 @@
-This Simple App. is a PyQt5-based GUI application designed to sort email-password combinations (combos) by their domain and remove duplicates. The application allows the user to select a text file containing the combos, processes the file to remove duplicates, sorts the combos by domain, and saves the sorted combos into separate files based on their domains. Additionally, the GUI has a dark theme applied to it.
+### Combo Sorter Application
 
-### Key Components:
+The Combo Sorter application is a user-friendly, GUI-based tool designed to help users manage and organize email-password combinations (combos) by their domain names. It is built using PyQt5, a set of Python bindings for the Qt application framework, which provides a modern and responsive interface.
 
-1. **Function `sort_combos_by_domain(input_file)`**:
-   - **Purpose**: Reads the input file, removes duplicate combos, sorts them by domain, and writes the sorted combos to separate files.
-   - **Parameters**: `input_file` - the path to the input file containing the combos.
-   - **Process**:
-     - Initializes a dictionary `domain_dict` to store domain-specific combos and a set `seen_combos` to track unique combos.
-     - Reads the input file line by line, checks if the line is a valid combo (contains exactly one '@' and one ':'), and adds it to the set if it's unique.
-     - Splits the combo into username and domain, and stores it in the dictionary under the corresponding domain.
-     - Counts the number of duplicates encountered.
-     - Creates an output directory `sorted_combos` if it doesn't exist.
-     - Writes each domain's combos to a separate file, sorted alphabetically.
-   - **Returns**: The number of duplicates removed.
+### Key Features
 
-2. **Class `ComboSorterApp(QWidget)`**:
-   - **Purpose**: Defines the main GUI application.
-   - **Methods**:
-     - `__init__(self)`: Initializes the GUI components.
-     - `initUI(self)`: Sets up the GUI layout, including labels and buttons.
-     - `showFileDialog(self)`: Opens a file dialog for the user to select a combo file. Enables the sort button once a file is selected.
-     - `sortFile(self)`: Calls `sort_combos_by_domain` to process the selected file and updates the label to show the number of duplicates removed.
+1. **File Selection**: Users can easily select a text file containing email-password combos through a file dialog.
+2. **Sorting and Deduplication**: The application sorts the combos by their domain names and removes any duplicate entries.
+3. **Output Directory**: Sorted combos are saved into separate files within a specified output directory (`sorted_combos`).
+4. **Open Folder**: A convenient button allows users to open the folder containing the sorted files directly from the application.
+5. **Dark Theme**: The application features a dark theme for a modern and visually appealing interface.
 
-3. **Main Execution Block**:
-   - Creates a `QApplication` instance.
-   - Applies a dark theme to the application using a stylesheet.
-   - Creates an instance of `ComboSorterApp` and displays the GUI.
-   - Starts the application's event loop with `sys.exit(app.exec_())`.
+### How to Use the Application
 
-### Dark Theme Stylesheet:
-- **QWidget**: Sets the background color to dark gray (`#2b2b2b`) and text color to white (`#ffffff`).
-- **QPushButton**: Sets the background color to a slightly lighter gray (`#3c3f41`), text color to white, and border color to a medium gray (`#555555`). Changes the background color on hover to an even lighter gray (`#4c4f51`).
-- **QLabel**: Sets the text color to white.
+1. **Launch the Application**:
+   - Install requirements (e.g., `pip install -r requirements.txt`)
+   - Run the Python script (e.g., `combo_sorter.py`) to launch the application.
 
-### User Interaction:
-1. The user launches the application.
-2. The user clicks the "Open File" button to select a combo file.
-3. The user clicks the "Remove Duplicates and Sort" button to process the file.
-4. The application processes the file, removes duplicates, sorts the combos by domain, and saves the results in the `sorted_combos` directory.
-5. The label updates to show the number of duplicates removed.
+3. **Select a File**:
+   - Click the "Open File" button to open a file dialog.
+   - Navigate to the location of your text file containing the email-password combos and select it.
+   - The selected file's path will be displayed in the application.
 
-This code provides a simple yet functional GUI for sorting and deduplicating email-password combos, with a modern dark theme for better visual appeal.
+4. **Sort and Remove Duplicates**:
+   - Once a file is selected, the "Remove Duplicates and Sort" button will be enabled.
+   - Click this button to start the sorting and deduplication process.
+   - The application will read the file, sort the combos by domain, remove duplicates, and save the sorted combos into separate files within the `sorted_combos` directory.
+   - A message will be displayed indicating the number of duplicates removed and confirming that the sorted combos have been saved.
+
+5. **Open Sorted Folder**:
+   - After the sorting process is complete, the "Open Sorted Folder" button will be enabled.
+   - Click this button to open the `sorted_combos` directory in your default file explorer, where you can view the sorted combo files.
+
+### Example Workflow
+
+1. **Start the Application**:
+   - Double-click the Python script or run it from the command line using `python combo_sorter.py`.
+
+2. **Select a Combo File**:
+   - Click "Open File".
+   - Select `combos.txt` or any other text file containing email-password combos.
+
+3. **Sort and Remove Duplicates**:
+   - Click "Remove Duplicates and Sort".
+   - Wait for the process to complete. The application will display a message like:
+     ```
+     Combos sorted and saved in "sorted_combos" directory. Duplicates removed: 10
+     ```
+
+4. **Open the Sorted Folder**:
+   - Click "Open Sorted Folder".
+   - The `sorted_combos` directory will open, showing files named after the domains (e.g., `example.com.txt`, `mail.com.txt`).
+
+### Technical Details
+
+- **Imports**: The application imports necessary modules from PyQt5 and standard Python libraries.
+- **sort_combos_by_domain Function**: This function reads the input file, sorts the combos by domain, removes duplicates, and writes the sorted combos to separate files.
+- **ComboSorterApp Class**: This class defines the main window of the application, including the UI elements and their functionalities.
+- **Main Execution Block**: This block initializes the application, applies the dark theme, and starts the event loop.
+### Donations
+If you feel like showing your love and/or appreciation for this Sipmle project, then how about shouting me a coffee or Milk :)
+
+[<img src="https://github.com/zinzied/Website-login-checker/assets/10098794/24f9935f-3637-4607-8980-06124c2d0225">](https://www.buymeacoffee.com/Zied)
+
