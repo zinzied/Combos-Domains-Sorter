@@ -7,29 +7,24 @@ from PyQt5.QtCore import QUrl
 from PyQt5.QtGui import QDesktopServices
 
 def sort_combos_by_domain(input_file):
-    # Dictionary to hold domain-specific combos
     domain_dict = {}
-    seen_combos = set()  # Set to track unique combos
-    duplicate_count = 0  # Counter for duplicates
+    seen_combos = set()
+    duplicate_count = 0
 
     # Read the input file
-    with open(input_file, 'r') as file:
+    with open(input_file, 'r', encoding='utf-8') as file:
         for line in file:
             line = line.strip()
             if line.count('@') == 1 and line.count(':') == 1:
-                # Check if the combo is unique
                 if line not in seen_combos:
                     seen_combos.add(line)
                     try:
                         username_domain, password = line.split(':', 1)
                         username, domain = username_domain.split('@', 1)
-                        
-                        # Add the combo to the corresponding domain list
                         if domain not in domain_dict:
                             domain_dict[domain] = []
                         domain_dict[domain].append(line)
                     except ValueError:
-                        # Skip lines that don't have the expected format
                         continue
                 else:
                     duplicate_count += 1
@@ -38,11 +33,10 @@ def sort_combos_by_domain(input_file):
     output_dir = 'sorted_combos'
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-
     # Write each domain's combos to a separate file
     for domain, combos in domain_dict.items():
         output_file = os.path.join(output_dir, f'{domain}.txt')
-        with open(output_file, 'w') as file:
+        with open(output_file, 'w', encoding='utf-8') as file:
             for combo in sorted(combos):  # Sort the combos before writing
                 file.write(combo + '\n')
     
