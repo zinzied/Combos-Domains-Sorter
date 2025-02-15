@@ -3,7 +3,8 @@
 The Combo Sorter application is a user-friendly, GUI-based tool designed to help users manage and organize email-password combinations (combos) by their domain names. It is built using PyQt5, a set of Python bindings for the Qt application framework.
 
 
- ![photo_5830135848115487868_w (1)](https://github.com/user-attachments/assets/e7c9e56c-a689-4e0b-9de7-8e73c31a73a1)
+![image](https://github.com/user-attachments/assets/7dce1ff9-df1d-45dd-9450-b7ead45c10b2)
+
 
 ### Key Features
 
